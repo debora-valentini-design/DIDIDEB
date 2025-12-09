@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Galleria - Debora Valentini</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Menu</a></div>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#career">Career</a></li>
+                <li><a href="index.html#discover">Discover</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="gallery-page">
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Images populated by JS -->
+        </div>
+    </main>
+
+    <script>
+        // List of gallery images (fallback placeholders if files missing)
+        const images = [
+            'img/fotopaginawebcreativa.jpg',
+            'img/fotopaginawebcreativa.jpg',
+            'img/fotopaginawebcreativa.jpg',
+            'img/fotopaginawebcreativa.jpg',
+            'img/fotopaginawebcreativa.jpg',
+            'img/fotopaginawebcreativa.jpg'
+        ];
+
+        const grid = document.getElementById('galleryGrid');
+
+        images.forEach(src => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = 'Gallery image';
+            img.onerror = function() { this.src = 'https://via.placeholder.com/800x600/ff087f/ffffff?text=Debora+Valentini'; };
+            item.appendChild(img);
+            grid.appendChild(item);
+        });
+    </script>
+</body>
+</html>

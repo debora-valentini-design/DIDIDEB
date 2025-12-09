@@ -583,7 +583,7 @@ h3 {
 
         /* Decorative stars */
         .star {
-            position: absolute;
+            position: srelative;
             opacity: 0.6;
         }
 
@@ -624,6 +624,83 @@ h3 {
             position: relative;
             overflow: hidden;
         }
+
+            /* Gallery cover card in Cards section */
+            .gallery-link { text-decoration: none; color: inherit; display: block; }
+
+            .gallery-card {
+                padding: 0;            
+                min-height: 260px;
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-start;
+                background-size: cover;
+                background-position: center;
+                border-radius: 20px;
+                overflow: hidden;
+                position: relative;
+                border: 1px solid rgba(255,255,255,0.06);
+            }
+
+            .gallery-card::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: rgba(0,0,0,0.45); /* opacized cover */
+                transition: background 0.35s ease, transform 0.5s ease;
+                z-index: 0;
+            }
+
+            .gallery-card .card-content {
+                position: relative;
+                z-index: 2;
+                padding: 24px 28px;
+                color: #fff;
+            }
+
+            .gallery-card h3 { margin: 0 0 6px; font-size: 28px; color: #fff; }
+
+            .gallery-card p { margin: 0; color: rgba(255,255,255,0.85); }
+
+            .gallery-card:hover::before {
+                background: rgba(0,0,0,0.25);
+            }
+
+            /* Gallery page styles */
+            .gallery-page {
+                padding: 140px 60px 80px;
+                min-height: 100vh;
+                background: linear-gradient(135deg, #1a1624 0%, #2a1f3a 100%);
+                color: #fff;
+            }
+
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 20px;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            .gallery-item {
+                background: #111;
+                border-radius: 12px;
+                overflow: hidden;
+                border: 1px solid rgba(255,255,255,0.04);
+            }
+
+            .gallery-item img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.45s ease, filter 0.45s ease;
+            }
+
+            .gallery-item:hover img {
+                transform: scale(1.03);
+                filter: saturate(1.05) brightness(1.02);
+            }
 
         .card::before {
             content: '';
