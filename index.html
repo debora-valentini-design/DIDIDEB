@@ -197,43 +197,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             }
         });
     </script>
-    <script>
-        // Create a persistent background element and keep it active
-        (function() {
-            const imageEl = document.querySelector('.about-image');
-            if (!imageEl) return;
-
-            const bg = document.createElement('div');
-            bg.className = 'about-bg';
-            document.body.appendChild(bg);
-
-            function activate() {
-                bg.classList.add('active');
-            }
-
-            function deactivate() {
-                bg.classList.remove('active');
-            }
-
-            // Keep active while cursor is over either the image or the background
-            imageEl.addEventListener('mouseenter', activate);
-            imageEl.addEventListener('mouseleave', (e) => {
-                // if moving into the bg element, don't deactivate
-                if (e.relatedTarget && bg.contains(e.relatedTarget)) return;
-                deactivate();
-            });
-
-            bg.addEventListener('mouseenter', activate);
-            bg.addEventListener('mouseleave', (e) => {
-                if (e.relatedTarget && imageEl.contains(e.relatedTarget)) return;
-                deactivate();
-            });
-
-            // Optional: support click to toggle on touch devices
-            imageEl.addEventListener('click', () => {
-                bg.classList.toggle('active');
-            });
-        })();
-    </script>
 </body>
 </html>
