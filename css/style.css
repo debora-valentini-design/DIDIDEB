@@ -400,27 +400,25 @@ h3 {
         }
 
         /* Full-screen right-side background on hover (triggered only when hovering the image) */
-        .about-image::after {
-            content: "";
-            position: fixed; /* cover viewport from the right */
+        /* Background element controlled by JS to keep hover state stable */
+        .about-bg {
+            position: fixed;
             top: 0;
             right: 0;
             height: 100vh;
-            width: 40%; /* initial visible strip from the right */
+            width: 40%;
             background-image: url("../img/fotopaginawebcreativa.jpg");
             background-size: cover;
             background-position: center right;
             background-repeat: no-repeat;
-            opacity: 0; /* start invisible and fade in on hover */
+            opacity: 0;
             transform: translateX(6%);
             transition: width 0.6s cubic-bezier(0.2, 0.9, 0.2, 1), opacity 0.45s ease, transform 0.6s ease;
-            pointer-events: none;
-            z-index: 0; /* behind content but above page background */
+            z-index: 0; /* behind the section content */
         }
 
-        .about-image:hover::after,
-        .about-image-wrapper:hover::after {
-            width: 100%; /* expand to full width of viewport */
+        .about-bg.active {
+            width: 100%;
             opacity: 1;
             transform: translateX(0);
         }
