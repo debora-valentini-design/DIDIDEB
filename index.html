@@ -197,5 +197,60 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             }
         });
     </script>
+    <script>
+        // Create/manage persistent background and keep body class in sync
+        (function() {
+            const imageEl = document.querySelector('.about-image');
+            if (!imageEl) return;
+
+            // If a bg already exists (from prior runs), reuse it
+            let bg = document.querySelector('.about-bg');
+            if (!bg) {
+                bg = document.createElement('div');
+                bg.className = 'about-bg';
+                document.body.appendChild(bg);
+            }
+
+            function activate() {
+                bg.classList.add('active');
+                document.body.classList.add('about-bg-active');
+            }
+
+            function deactivate() {
+                bg.classList.remove('active');
+                document.body.classList.remove('about-bg-active');
+            }
+
+            imageEl.addEventListener('mouseenter', activate);
+            imageEl.addEventListener('mouseleave', (e) => {
+                if (e.relatedTarget && bg.contains(e.relatedTarget)) return;
+                deactivate();
+            });
+
+            bg.addEventListener('mouseenter', activate);
+            bg.addEventListener('mouseleave', (e) => {
+                if (e.relatedTarget && imageEl.contains(e.relatedTarget)) return;
+                deactivate();
+            });
+
+            // Click toggles for touch devices
+            imageEl.addEventListener('click', (e) => {
+                // prevent immediate mouse events interfering
+                e.stopPropagation();
+                if (bg.classList.contains('active')) {
+                    deactivate();
+                } else {
+                    activate();
+                }
+            });
+
+            // Optional: clicking outside the image/background closes it
+            document.addEventListener('click', (e) => {
+                if (!imageEl.contains(e.target) && !bg.contains(e.target)) {
+                    deactivate();
+                }
+            });
+        })();
+    </script>
 </body>
 </html>

@@ -423,6 +423,22 @@ h3 {
             transform: translateX(0);
         }
 
+        /* When the expanded background is active, hide the original img so the expanded bg shows through */
+        body.about-bg-active .about-image img {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+
+        /* Ensure stars and text stay visible above the background */
+        .about-section .star,
+        .about-section .about-text,
+        .about-section h2,
+        .about-section p {
+            position: relative;
+            z-index: 2;
+        }
+
         /* Make sure the section content sits above the pseudo background */
         .about-section .about-container,
         .about-section .about-container * {
