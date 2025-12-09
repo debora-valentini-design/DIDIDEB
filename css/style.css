@@ -593,6 +593,7 @@ h3 {
             width: 80px;
             height: 80px;
             outline: #ff66cc;
+            color: #ff66cc;
         }
 
         .star-2 {
@@ -601,6 +602,7 @@ h3 {
             width: 120px;
             height: 120px;
             outline: #ff3399;
+            color: #ff3399;
         }
 
         .star-3 {
@@ -609,6 +611,7 @@ h3 {
             width: 60px;
             height: 60px;
             outline: #c508ff;
+            color: #c508ff;
         }
 
                .card {
