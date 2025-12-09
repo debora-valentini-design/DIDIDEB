@@ -402,30 +402,31 @@ h3 {
         /* Full-screen right-side background on hover (triggered only when hovering the image) */
         /* Background element controlled by JS to keep hover state stable */
         .about-bg {
-            position: fixed;
+            position: absolute; /* positioned inside .about-section */
             top: 0;
             right: 0;
-            height: 100vh;
-            width: 40%;
+            left: 0;
+            height: 100%; /* limit to the section height */
+            width: 100%;
             background-image: url("../img/fotopaginawebcreativa.jpg");
             background-size: cover;
             background-position: center right;
             background-repeat: no-repeat;
             opacity: 0;
-            transform: translateX(6%);
-            transition: width 0.6s cubic-bezier(0.2, 0.9, 0.2, 1), opacity 0.45s ease, transform 0.6s ease;
+            transform: scale(1.03); /* subtle zoom-out on active */
+            transition: opacity 0.65s cubic-bezier(0.22, 0.9, 0.35, 1), transform 0.75s cubic-bezier(0.22, 0.9, 0.35, 1);
+            overflow: hidden; /* remove scrollbar */
             z-index: 0; /* behind the section content */
         }
 
         .about-bg.active {
-            width: 100%;
             opacity: 1;
-            transform: translateX(0);
+            transform: scale(1);
         }
 
         /* Transition for the inline image so it can fade out when bg is active */
         .about-image img {
-            transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, visibility 0s linear 0.6s;
         }
 
         /* When the background is active hide the inline image (and keep content above) */

@@ -207,7 +207,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
             const bg = document.createElement('div');
             bg.className = 'about-bg';
-            document.body.appendChild(bg);
+            // use CSS background-image for smooth transitions and no scrollbar
+            bg.style.backgroundImage = 'url("img/fotopaginawebcreativa.jpg")';
+            // append the bg inside the about section so its height is limited to the section
+            sectionEl.appendChild(bg);
 
             function activate() {
                 bg.classList.add('active');
