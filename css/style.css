@@ -423,6 +423,19 @@ h3 {
             transform: translateX(0);
         }
 
+        /* Transition for the inline image so it can fade out when bg is active */
+        .about-image img {
+            transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+        }
+
+        /* When the background is active hide the inline image (and keep content above) */
+        .about-section.bg-active .about-image img {
+            opacity: 0;
+            transform: scale(0.98);
+            visibility: hidden;
+            transition-delay: 0s;
+        }
+
         /* Make sure the section content sits above the pseudo background */
         .about-section .about-container,
         .about-section .about-container * {
