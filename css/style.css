@@ -415,34 +415,12 @@ h3 {
             transform: translateX(6%);
             transition: width 0.6s cubic-bezier(0.2, 0.9, 0.2, 1), opacity 0.45s ease, transform 0.6s ease;
             z-index: 0; /* behind the section content */
-            overscroll-behavior: contain; /* keep wheel events inside */
-            cursor: grab;
         }
 
         .about-bg.active {
             width: 100%;
             opacity: 1;
             transform: translateX(0);
-        }
-
-        .about-bg:active {
-            cursor: grabbing;
-        }
-
-        /* When the expanded background is active, hide the original img so the expanded bg shows through */
-        body.about-bg-active .about-image img {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.35s ease, visibility 0.35s ease;
-        }
-
-        /* Ensure stars and text stay visible above the background */
-        .about-section .star,
-        .about-section .about-text,
-        .about-section h2,
-        .about-section p {
-            position: relative;
-            z-index: 2;
         }
 
         /* Make sure the section content sits above the pseudo background */
