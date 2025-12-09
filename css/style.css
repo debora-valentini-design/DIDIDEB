@@ -584,31 +584,31 @@ h3 {
         /* Decorative stars */
         .star {
             position: absolute;
-            width: 80px;
-            height: 80px;
             opacity: 0.6;
         }
 
         .star-1 {
             top: -20px;
             right: -30px;
-            color: #ff66cc;
+            width: 80px;
+            height: 80px;
+            outline: #ff66cc;
         }
 
         .star-2 {
             bottom: 50px;
             right: -40px;
-            color: #ff3399;
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
+            outline: #ff3399;
         }
 
         .star-3 {
             top: 100px;
             left: -50px;
-            color: #c508ff;
             width: 60px;
             height: 60px;
+            outline: #c508ff;
         }
 
                .card {
@@ -659,15 +659,6 @@ h3 {
             color: #c508ff;
             position: relative;
             z-index: 1;
-        }
-
-        /* Special cards */
-        .card.triple-question {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            color: rgba(255, 255, 255, 0.3);
         }
 
         /* Footer */
