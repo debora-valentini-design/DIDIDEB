@@ -197,5 +197,50 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             }
         });
     </script>
+    <script>
+        // Create a persistent background element and keep it active;
+        // also add a class to the section so we can hide the inline image.
+        (function() {
+            const imageEl = document.querySelector('.about-image');
+            const sectionEl = document.querySelector('.about-section');
+            if (!imageEl || !sectionEl) return;
+
+            const bg = document.createElement('div');
+            bg.className = 'about-bg';
+            document.body.appendChild(bg);
+
+            function activate() {
+                bg.classList.add('active');
+                sectionEl.classList.add('bg-active');
+            }
+
+            function deactivate() {
+                bg.classList.remove('active');
+                sectionEl.classList.remove('bg-active');
+            }
+
+            // Keep active while cursor is over either the image or the background
+            imageEl.addEventListener('mouseenter', activate);
+            imageEl.addEventListener('mouseleave', (e) => {
+                if (e.relatedTarget && bg.contains(e.relatedTarget)) return;
+                deactivate();
+            });
+
+            bg.addEventListener('mouseenter', activate);
+            bg.addEventListener('mouseleave', (e) => {
+                if (e.relatedTarget && imageEl.contains(e.relatedTarget)) return;
+                deactivate();
+            });
+
+            // Support click to toggle on touch devices (toggle also updates section class)
+            imageEl.addEventListener('click', (e) => {
+                if (bg.classList.contains('active')) {
+                    deactivate();
+                } else {
+                    activate();
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
