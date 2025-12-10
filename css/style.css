@@ -702,6 +702,155 @@ h3 {
                 filter: saturate(1.05) brightness(1.02);
             }
 
+            /* Lightbox styles */
+            .lightbox-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.85);
+                display: none;
+                align-items: center;
+                justify-content: center;
+                z-index: 3000;
+                padding: 28px;
+            }
+
+            .lightbox-overlay.active {
+                display: flex;
+            }
+
+            .lightbox-content {
+                max-width: 1100px;
+                width: 100%;
+                max-height: calc(100vh - 120px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+            }
+
+            .lightbox-image {
+                max-width: 100%;
+                max-height: 100%;
+                box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+                border-radius: 8px;
+                transition: transform 0.35s cubic-bezier(0.2,0.9,0.2,1), opacity 0.35s ease;
+            }
+
+            .lightbox-caption {
+                color: rgba(255,255,255,0.9);
+                text-align: center;
+                margin-top: 12px;
+                font-size: 14px;
+            }
+
+            .lightbox-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 100%;
+                pointer-events: none;
+            }
+
+            .lightbox-nav button {
+                pointer-events: auto;
+                position: absolute;
+                background: rgba(255,255,255,0.06);
+                border: none;
+                color: #fff;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: background 0.2s ease, transform 0.18s ease;
+            }
+
+            .lightbox-nav button:hover { background: rgba(255,255,255,0.12); transform: scale(1.03); }
+
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+
+            .lightbox-close {
+                position: absolute;
+                right: 8px;
+                top: 8px;
+                background: rgba(255,255,255,0.06);
+                border: none;
+                color: #fff;
+                width: 36px;
+                height: 36px;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+
+            @media (max-width: 600px) {
+                .lightbox-nav button { width: 36px; height: 36px; }
+                .lightbox-close { width: 32px; height: 32px; }
+            }
+
+            /* Gallery dropdown (one-page) */
+            .gallery-dropdown {
+                position: fixed;
+                top: 70px; /* below header */
+                left: 0;
+                right: 0;
+                max-height: calc(100vh - 90px);
+                background: rgba(18,12,24,0.95);
+                backdrop-filter: blur(6px);
+                box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+                z-index: 2000;
+                display: none;
+                padding: 28px 24px;
+            }
+
+            .gallery-dropdown[aria-hidden="false"] {
+                display: block;
+            }
+
+            .gallery-dropdown-inner {
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            .gallery-close {
+                background: transparent;
+                color: #fff;
+                border: none;
+                font-size: 22px;
+                float: right;
+                cursor: pointer;
+            }
+
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 14px;
+                margin-top: 8px;
+            }
+
+            .gallery-item {
+                border-radius: 10px;
+                overflow: hidden;
+                border: 1px solid rgba(255,255,255,0.03);
+                background: #0f0b12;
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: 160px;
+                object-fit: cover;
+                display: block;
+                transition: transform 0.35s cubic-bezier(0.2,0.9,0.2,1), box-shadow 0.35s ease;
+            }
+
+            .gallery-item:hover img {
+                transform: scale(1.06);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 2px 8px rgba(255,8,127,0.06) inset;
+                filter: brightness(1.05) saturate(1.05);
+            }
+
         .card::before {
             content: '';
             position: absolute;

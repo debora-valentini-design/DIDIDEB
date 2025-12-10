@@ -20,33 +20,107 @@
     </header>
 
     <main class="gallery-page">
+        <h1 style="text-align:center;margin-bottom:24px;">Galleria</h1>
         <div class="gallery-grid" id="galleryGrid">
             <!-- Images populated by JS -->
         </div>
     </main>
 
-    <script>
-        // List of gallery images (fallback placeholders if files missing)
-        const images = [
-            'img/DSCF2961.JPG',
-            'img/DSCF2989.JPG',
-            'img/DSCF2992.JPG',
-            'img/DSCF3003.JPG',
+    <!-- Lightbox markup -->
+    <div class="lightbox-overlay" id="lightbox" aria-hidden="true">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Chiudi">✕</button>
+            <div class="lightbox-nav">
+                <button class="lightbox-prev" id="lightboxPrev" aria-label="Immagine precedente">‹</button>
+                <button class="lightbox-next" id="lightboxNext" aria-label="Immagine successiva">›</button>
+            </div>
+            <img src="" alt="" class="lightbox-image" id="lightboxImage">
+        </div>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
 
+    <script>
+        // Replace with your real gallery images
+        const images = [
+            { src: 'img/DSCF2961.JPG', caption: 'Debora — Ritratto 1' },
+            { src: 'img/DSCF2989.JPG', caption: 'Debora — Ritratto 2' },
+            { src: 'img/DSCF2992.JPG', caption: 'Debora — Ritratto 3' },
+            { src: 'img/DSCF3003.JPG', caption: 'Debora — Ritratto 4' },
+            { src: 'img/fotopaginawebcreativa.jpg', caption: 'Copertina' },
+            { src: 'img/fotopaginawebcreativa.jpg', caption: 'Altro' }
         ];
 
         const grid = document.getElementById('galleryGrid');
+        const lightbox = document.getElementById('lightbox');
+        const lbImage = document.getElementById('lightboxImage');
+        const lbCaption = document.getElementById('lightboxCaption');
+        const lbClose = document.getElementById('lightboxClose');
+        const lbPrev = document.getElementById('lightboxPrev');
+        const lbNext = document.getElementById('lightboxNext');
 
-        images.forEach(src => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = 'Gallery image';
-            img.onerror = function() { this.src = 'https://via.placeholder.com/800x600/ff087f/ffffff?text=Debora+Valentini'; };
-            item.appendChild(img);
-            grid.appendChild(item);
+        let currentIndex = 0;
+
+        function populateGallery() {
+            images.forEach((it, i) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                const img = document.createElement('img');
+                img.src = it.src;
+                img.alt = it.caption || ('Image ' + (i+1));
+                img.loading = 'lazy';
+                img.onerror = function(){ this.src = 'https://via.placeholder.com/800x600/ff087f/ffffff?text=Debora+Valentini' };
+                img.addEventListener('click', () => openLightbox(i));
+                item.appendChild(img);
+                grid.appendChild(item);
+            });
+        }
+
+        function openLightbox(idx) {
+            currentIndex = idx;
+            const it = images[idx];
+            lbImage.src = it.src;
+            lbImage.alt = it.caption || '';
+            lbCaption.textContent = it.caption || '';
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden','false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden','true');
+            lbImage.src = '';
+            document.body.style.overflow = '';
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % images.length;
+            openLightbox(currentIndex);
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            openLightbox(currentIndex);
+        }
+
+        lbClose.addEventListener('click', closeLightbox);
+        lbNext.addEventListener('click', (e)=>{ e.stopPropagation(); showNext(); });
+        lbPrev.addEventListener('click', (e)=>{ e.stopPropagation(); showPrev(); });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
         });
+
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.getAttribute('aria-hidden') === 'false') {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') showNext();
+                if (e.key === 'ArrowLeft') showPrev();
+            }
+        });
+
+        // Initialize
+        populateGallery();
     </script>
 </body>
 </html>

@@ -34,6 +34,16 @@
         </div>
     </header>
 
+    <!-- Gallery dropdown (one-page) -->
+    <div class="gallery-dropdown" id="galleryDropdown" aria-hidden="true">
+        <div class="gallery-dropdown-inner">
+            <button class="gallery-close" id="galleryClose" aria-label="Chiudi galleria">✕</button>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- images populated by JS -->
+            </div>
+        </div>
+    </div>
+
     <!-- Menu Mobile -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
@@ -111,7 +121,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
      <!-- Cards Section -->
     <section class="cards-section" id="discover">
         <div class="cards-grid">
-            <a class="gallery-link" href="gallery.html" aria-label="Apri galleria completa">
+            <a class="gallery-link open-gallery" href="#" aria-label="Apri galleria completa">
                 <div class="card gallery-card" style="background-image: url('img/fotopaginawebcreativa.jpg')">
                     <div class="card-content">
                         <h3>Portfolio</h3>
@@ -186,6 +196,67 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 toggleMenu();
             }
         });
+    </script>
+    <script>
+        // One-page gallery dropdown: populate images and open/close logic
+        (function(){
+            const galleryTrigger = document.querySelector('.open-gallery');
+            const galleryDropdown = document.getElementById('galleryDropdown');
+            const galleryClose = document.getElementById('galleryClose');
+            const galleryGrid = document.getElementById('galleryGrid');
+
+            if (!galleryTrigger || !galleryDropdown || !galleryGrid) return;
+
+            // Example image list - add or change filenames as needed
+            const images = [
+                'img/fotopaginawebcreativa.jpg',
+                'img/fotopaginawebcreativa.jpg',
+                'img/fotopaginawebcreativa.jpg',
+                'img/fotopaginawebcreativa.jpg',
+                'img/fotopaginawebcreativa.jpg',
+                'img/fotopaginawebcreativa.jpg'
+            ];
+
+            function populate() {
+                galleryGrid.innerHTML = '';
+                images.forEach(src => {
+                    const item = document.createElement('div');
+                    item.className = 'gallery-item';
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = 'Gallery image';
+                    img.loading = 'lazy';
+                    img.onerror = function(){ this.src = 'https://via.placeholder.com/800x600/ff087f/ffffff?text=Debora+Valentini' };
+                    item.appendChild(img);
+                    galleryGrid.appendChild(item);
+                });
+            }
+
+            function openGallery(e){
+                e && e.preventDefault();
+                populate();
+                galleryDropdown.setAttribute('aria-hidden','false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeGallery(){
+                galleryDropdown.setAttribute('aria-hidden','true');
+                document.body.style.overflow = '';
+            }
+
+            galleryTrigger.addEventListener('click', openGallery);
+            galleryClose.addEventListener('click', closeGallery);
+
+            // close when clicking outside inner area
+            galleryDropdown.addEventListener('click', (e) => {
+                if (e.target === galleryDropdown) closeGallery();
+            });
+
+            // close on Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && galleryDropdown.getAttribute('aria-hidden') === 'false') closeGallery();
+            });
+        })();
     </script>
     <script>
         // Create a persistent background element and keep it active;
