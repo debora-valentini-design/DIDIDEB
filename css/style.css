@@ -614,8 +614,8 @@ h3 {
             color: #c508ff;
         }
 
-               .card {
-            background: rgba(255, 255, 255, 0.03);
+                    .card {
+                background: #ff087f;
             backdrop-filter: blur(10px);
             padding: 50px 35px;
             border-radius: 20px;
