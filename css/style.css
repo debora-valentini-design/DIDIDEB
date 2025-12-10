@@ -875,12 +875,23 @@ h3 {
         }
 
          .card h3 {
-            font-family: 'Ballet', cursive;
+            font-family: 'Inter', sans-serif;
             font-size: 42px;
             color: #ff81cf;
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
+            font-weight: 400;
+        }
+
+        /* Initial letter styled differently */
+        .card h3 .iniziale {
+            font-family: 'Ballet', cursive;
+            font-style: italic;
+            display: inline-block;
+            margin-right: 6px;
+            font-size: 1.05em;
+            line-height: 0.9;
         }
 
         .card p {
