@@ -637,7 +637,7 @@ h3 {
             .cards-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
+                gap: 12px;
                 max-width: 1200px;
                 margin: 0 auto;
             }
@@ -664,15 +664,15 @@ h3 {
 
             /* Add top and bottom margin to all cards */
             .card {
-                margin-top: 48px; /* breathing room above all cards */
-                margin-bottom: 48px; /* breathing room below all cards */
+                margin-top: 72px; /* breathing room above all cards */
+                margin-bottom: 72px; /* breathing room below all cards */
             }
 
             /* Reduce the extra margin on smaller screens so cards remain compact */
             @media (max-width: 768px) {
                 .card {
-                    margin-top: 24px;
-                    margin-bottom: 24px;
+                    margin-top: 32px;
+                    margin-bottom: 32px;
                 }
             }
 
