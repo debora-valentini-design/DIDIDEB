@@ -719,9 +719,9 @@ h3 {
                 color: #ff087f;
             }
 
-            .gallery-card h3 { margin: 0 0 6px; font-size: 28px; color: #fff; }
+            .gallery-card h3 { margin: 0 0 6px; font-size: 28px; color: #ff087f; }
 
-            .gallery-card p { margin: 0; color: rgba(255,255,255,0.85); }
+            .gallery-card p { margin: 0; color: #ff087f }
 
             .gallery-card:hover::before {
                 background: rgba(0,0,0,0.25);
@@ -732,7 +732,7 @@ h3 {
                 padding: 140px 60px 80px;
                 min-height: 100vh;
                 background: linear-gradient(135deg, #1a1624 0%, #2a1f3a 100%);
-                color: #fff;
+                color: #ff087f;
             }
 
             .gallery-grid {
