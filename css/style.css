@@ -637,9 +637,10 @@ h3 {
             .cards-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 6px;
+                gap: 2px 48px; /* row gap (vertical) 2px, column gap (horizontal) 48px */
                 max-width: 1200px;
                 margin: 0 auto;
+                padding: 0 60px; /* add margin from edges */
             }
 
             /* 360deg flip on hover (smooth) */
@@ -664,15 +665,18 @@ h3 {
 
             /* Add top and bottom margin to all cards */
             .card {
-                margin-top: 24px; /* breathing room above all cards */
-                margin-bottom: 24px; /* breathing room below all cards */
+                margin-top: 0;
+                margin-bottom: 0;
             }
 
             /* Reduce the extra margin on smaller screens so cards remain compact */
             @media (max-width: 768px) {
+                .cards-grid {
+                    padding: 0 30px;
+                }
                 .card {
-                    margin-top: 12px;
-                    margin-bottom: 12px;
+                    margin-top: 0;
+                    margin-bottom: 0;
                 }
             }
 
