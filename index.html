@@ -299,5 +299,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         })();
     </script>
+    <script>
+        // Make non-link cards focusable and toggle a "clicked" state on click or keyboard
+        (function(){
+            const cards = document.querySelectorAll('.cards-grid .card');
+            if (!cards || cards.length === 0) return;
+
+            cards.forEach(card => {
+                // don't override behavior of cards wrapped in links (gallery cover)
+                const inLink = card.closest('a');
+                if (!inLink) {
+                    // make focusable for keyboard users
+                    card.setAttribute('tabindex', '0');
+                    // click toggles 'clicked'
+                    card.addEventListener('click', () => {
+                        card.classList.toggle('clicked');
+                    });
+                    // keyboard support: Enter or Space toggles
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            card.classList.toggle('clicked');
+                        }
+                    });
+                } else {
+                    // for linked cards, give the inner card a pointer cursor
+                    card.style.cursor = 'pointer';
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
