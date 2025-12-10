@@ -249,6 +249,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && galleryDropdown.getAttribute('aria-hidden') === 'false') closeGallery();
             });
+
+            // Auto-scroll carousel: scroll to next image every 5 seconds
+            let autoScrollInterval = null;
+            function startAutoScroll() {
+                autoScrollInterval = setInterval(() => {
+                    const itemWidth = galleryGrid.querySelector('.gallery-item')?.offsetWidth || window.innerWidth;
+                    const nextScroll = galleryGrid.scrollLeft + itemWidth;
+                    // Loop back to start if at end
+                    if (nextScroll >= galleryGrid.scrollWidth) {
+                        galleryGrid.scrollLeft = 0;
+                    } else {
+                        galleryGrid.scrollLeft = nextScroll;
+                    }
+                }, 5000);
+            }
+
+            function stopAutoScroll() {
+                if (autoScrollInterval) clearInterval(autoScrollInterval);
+            }
+
+            // Start auto-scroll when gallery opens
+            const originalOpenGallery = openGallery;
+            openGallery = function(e) {
+                originalOpenGallery(e);
+                startAutoScroll();
+            };
+
+            // Stop auto-scroll when gallery closes
+            const originalCloseGallery = closeGallery;
+            closeGallery = function() {
+                originalCloseGallery();
+                stopAutoScroll();
+            };
+
+            // Pause auto-scroll on user manual scroll
+            galleryGrid.addEventListener('wheel', stopAutoScroll);
+            galleryGrid.addEventListener('scroll', () => {
+                stopAutoScroll();
+                // Restart after user stops scrolling
+                setTimeout(startAutoScroll, 3000);
+            });
         })();
     </script>
     <script>
