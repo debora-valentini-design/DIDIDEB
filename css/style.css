@@ -665,18 +665,18 @@ h3 {
 
             /* Add top and bottom margin to all cards */
             .card {
-                margin-top: 0;
-                margin-bottom: 0;
+                margin-top: 20px;
+                margin-bottom: 20px;
             }
 
             /* Reduce the extra margin on smaller screens so cards remain compact */
             @media (max-width: 768px) {
                 .cards-grid {
-                    padding: 0 30px;
+                    padding: 10 30px;
                 }
                 .card {
-                    margin-top: 0;
-                    margin-bottom: 0;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
                 }
             }
 
