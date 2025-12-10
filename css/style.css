@@ -624,6 +624,11 @@ h3 {
             position: relative;
             overflow: hidden;
                 min-height: 340px; /* increased card height */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
         }
 
             /* Gallery cover card in Cards section */
@@ -633,8 +638,8 @@ h3 {
                 padding: 0;
                 min-height: 360px; /* larger cover card */
                 display: flex;
-                align-items: flex-end;
-                justify-content: flex-start;
+                align-items: center; /* center vertically */
+                justify-content: center; /* center horizontally */
                 background-size: cover;
                 background-position: center;
                 border-radius: 20px;
