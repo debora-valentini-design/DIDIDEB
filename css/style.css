@@ -568,7 +568,7 @@ h3 {
              .cards-section {
                 padding: 80px 30px;
                 background: #ff087f;
-                color: #fff;
+                color: transparent;
             }
 
             .cards-grid {
@@ -659,24 +659,24 @@ h3 {
             }
 
             .card:focus {
-                outline: 3px solid rgba(255,102,204,0.25);
-                outline-offset: 6px;
+                outline: 8px solid rgba(255,102,204,0.25);
+                outline-offset: 10px;
             }
 
             /* Add top and bottom margin to all cards */
             .card {
-                margin-top: 20px;
-                margin-bottom: 20px;
+                margin-top: 25px;
+                margin-bottom: 25px;
             }
 
             /* Reduce the extra margin on smaller screens so cards remain compact */
             @media (max-width: 768px) {
                 .cards-grid {
-                    padding: 10 30px;
+                    padding: 200 20px;
                 }
                 .card {
-                    margin-top: 20px;
-                    margin-bottom: 20px;
+                    margin-top: 25px;
+                    margin-bottom: 25px;
                 }
             }
 
@@ -845,7 +845,7 @@ h3 {
                 top: 8px;
                 background: rgba(255,255,255,0.06);
                 border: none;
-                color: #ff087f;
+                color: #fff;
                 width: 36px;
                 height: 36px;
                 border-radius: 6px;
