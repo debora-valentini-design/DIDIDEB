@@ -662,15 +662,17 @@ h3 {
                 outline-offset: 6px;
             }
 
-            /* Add top margin to all cards */
+            /* Add top and bottom margin to all cards */
             .card {
                 margin-top: 48px; /* breathing room above all cards */
+                margin-bottom: 48px; /* breathing room below all cards */
             }
 
             /* Reduce the extra margin on smaller screens so cards remain compact */
             @media (max-width: 768px) {
                 .card {
                     margin-top: 24px;
+                    margin-bottom: 24px;
                 }
             }
 
