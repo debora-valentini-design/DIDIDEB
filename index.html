@@ -250,6 +250,51 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 if (e.key === 'Escape' && galleryDropdown.getAttribute('aria-hidden') === 'false') closeGallery();
             });
 
+                // Auto-scroll images horizontally inside the gallery box
+                let galleryScrollInterval = null;
+                function startGalleryAutoScroll() {
+                    stopGalleryAutoScroll();
+                    galleryScrollInterval = setInterval(() => {
+                        const itemWidth = galleryGrid.querySelector('.gallery-item')?.offsetWidth || 320;
+                        const nextScroll = galleryGrid.scrollLeft + itemWidth;
+                        if (nextScroll + galleryGrid.offsetWidth >= galleryGrid.scrollWidth) {
+                            galleryGrid.scrollLeft = 0;
+                        } else {
+                            galleryGrid.scrollLeft = nextScroll;
+                        }
+                    }, 3500);
+                }
+
+                function stopGalleryAutoScroll() {
+                    if (galleryScrollInterval) clearInterval(galleryScrollInterval);
+                }
+
+                // Start auto-scroll when gallery opens
+
+                // Use let to avoid redeclaration errors
+                if (!window._galleryOpenPatched) {
+                    window._galleryOpenPatched = true;
+                    const originalOpenGallery = openGallery;
+                    openGallery = function(e) {
+                        originalOpenGallery(e);
+                        setTimeout(startGalleryAutoScroll, 600); // wait for open animation
+                    };
+                    const originalCloseGallery = closeGallery;
+                    closeGallery = function() {
+                        originalCloseGallery();
+                        stopGalleryAutoScroll();
+                    };
+                }
+
+                // Pause auto-scroll on manual scroll
+                galleryGrid.addEventListener('wheel', stopGalleryAutoScroll);
+                galleryGrid.addEventListener('mousedown', stopGalleryAutoScroll);
+                galleryGrid.addEventListener('touchstart', stopGalleryAutoScroll);
+                galleryGrid.addEventListener('scroll', () => {
+                    stopGalleryAutoScroll();
+                    setTimeout(startGalleryAutoScroll, 3000);
+                });
+
             // Auto-scroll carousel: scroll to next image every 5 seconds
             let autoScrollInterval = null;
             function startAutoScroll() {
