@@ -29,7 +29,6 @@ h3 {
 
         /* Header */
         header {
-            background-color: linear-gradient(90deg, #ff087f #c508ff #1a1a2e);
             padding: 20px 60px;
             display: flex;
             justify-content: space-between;
@@ -1050,7 +1049,7 @@ header.header-hidden .search-box {
             transform: scale(1.05);
         } */
 
-        /* Portfolio card specific styles */
+        /* Portfolio card specific styles 
 
         .portfolio-card {
             display: flex;
@@ -1062,13 +1061,111 @@ header.header-hidden .search-box {
         .portfolio-title {
             text-align: center;
             margin-bottom: 10px;
-        }
-        
-        /* Responsive adjustments */
+        } */
+
+        /* Responsive adjustments 
         @media (max-width: 768px) {
             .swiper {
                 width: 200px;
                 height: 260px;
+            }
+        } */
+
+         .carousel-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, rgb(242, 144, 253), rgba(255, 255, 255, 0.97));
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-title {
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 60px;
+            font-weight: 300;
+            text-shadow: #c508ff 0px 0px 7px;
+        }
+
+        .carousel-title .iniziale {
+            font-family: 'Ballet';
+            font-size: 70px;
+            color: #fff;
+            text-shadow: #c508ff 0px 0px 7px;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow:visible;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 30px;
+            animation: scroll 30s linear infinite;
+            will-change: transform;
+        }
+
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        .carousel-item {
+            flex-shrink: 0;
+            width: 350px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: #c508ff 0px 0px 7px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .carousel-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: #c508ff 0px 0px 20px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-350px * 5 - 150px)); /* larghezza item * numero + gap totale */
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .carousel-title {
+                font-size: 36px;
+            }
+
+            .carousel-container {
+                height: 300px;
+            }
+
+            .carousel-item {
+                width: 280px;
+                height: 300px;
+            }
+
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-280px * 5 - 150px));
+                }
             }
         }
 
