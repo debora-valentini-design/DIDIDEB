@@ -1,24 +1,36 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Debora Valentini - Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon5.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Ballet&family=Inter:wght@400;700&family=Lalezar&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap_grid.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
      <div class="overlay" id="overlay"></div>
 
     <header>
-        <div class="logo">Menu</div>
+        <div class="logo">
+            <img src="img/favicon4.png" alt="Logo sito">
+        </div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#career">Career</a></li>
                 <li><a href="#discover">Discover</a></li>
-                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#Video">Video</a></li>
             </ul>
         </nav>
         <div class="header-right">
@@ -27,9 +39,9 @@
                 <input type="text" placeholder="Search">
             </div>
             <div class="menu-icon" id="menuIcon">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
             </div>
         </div>
     </header>
@@ -50,10 +62,11 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#career">Career</a></li>
             <li><a href="#discover">Discover</a></li>
-            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#video">Video</a></li>
         </ul>
     </div>
 
+    
    <!-- Hero section -->
     <section class="hero" id="home">
     <h1 class="hero-title"><span>D</span>ebora <span>V</span>alentini</h1>
@@ -78,7 +91,7 @@
             </div>
             <div class="about-image">
                 <div class="about-image-wrapper">
-                    <svg class="star star-1" viewBox="0 0 100 100">
+                    <!--<svg class="star star-1" viewBox="0 0 100 100">
                         <path d="M50 0 L61 39 L100 50 L61 61 L50 100 L39 61 L0 50 L39 39 Z" fill="currentColor"/>
                     </svg>
                     <svg class="star star-2" viewBox="0 0 100 100">
@@ -86,7 +99,7 @@
                     </svg>
                     <svg class="star star-3" viewBox="0 0 100 100">
                         <path d="M50 0 L61 39 L100 50 L61 61 L50 100 L39 61 L0 50 L39 39 Z" fill="currentColor"/>
-                    </svg>
+                    </svg> -->
                     <img src="img/fotopaginawebcreativa.jpg" alt="Debora Valentini" onerror="this.src='https://via.placeholder.com/600x700/ff087f/ffffff?text=Debora+Valentini'">
                 </div>
             </div>
@@ -121,44 +134,83 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
      <!-- Cards Section -->
     <section class="cards-section" id="discover">
         <div class="cards-grid">
-            <a class="gallery-link open-gallery" href="#" aria-label="Apri galleria completa">
-                <div class="card gallery-card" style="background-image: url('img/DSCF2989.JPG')">
-                    <div class="card-content">
-                        <h3><span class="iniziale">P</span>ortfolio</h3>
-                        <p>Apri la galleria completa</p>
-                    </div>
+            <div class="card portfolio-card">
+                <div class="card-content" style="background-image: url('img/DSCF2961.JPG');"></div>
+                <div class="card-content" style="background-image: url('img/DSCF2989.JPG');"></div>
+                <div class="card-content" style="background-image: url('img/DSCF2992.JPG');"></div>
+                <div class="card-content" style="background-image: url('img/DSCF3001.JPG');"></div>
+                <div class="card-content" style="background-image: url('img/DSCF3003.JPG');"></div>
+                <h3 class="portfolio-title"><span class="iniziale">P</span>ortfolio</h3>
+                
+                <!-- Swiper Carousel
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="background-image: url('img/DSCF2961.JPG')"></div>
+                        <div class="swiper-slide" style="background-image: url('img/DSCF2989.JPG')"></div>
+                        <div class="swiper-slide" style="background-image: url('img/DSCF2992.JPG')"></div>
+                        <div class="swiper-slide" style="background-image: url('img/DSCF3001.JPG')"></div>
+                        <div class="swiper-slide" style="background-image: url('img/DSCF3003.JPG')"></div> -->
+
+                    </div> 
                 </div>
-            </a>
-
-            <div class="card">
-                <h3><span class="iniziale">T</span>raveling</h3>
-                <p>Amo viaggiare e documentare dalla mia digi-cam ogni luogo in cui mi trovo.</p>
             </div>
-
-            <div class="card">
-                <h3><span class="iniziale">Q</span>uality <span class="iniziale">T</span>ime</h3>
-                <p>Amo trascorrere del tempo in semplicità con i miei amici più cari, divertendomi.</p>
-            </div>
-
-            <div class="card">
-                <h3><span class="iniziale">H</span>obbies</h3>
-                <p>Amo sperimentare nuovi look prendendo ispirazione dal passato.</p>
+        </div> 
+    </section>
+     <section class="video-section" id="video">
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="video/HNI_0071.mp4" type="video/mp4">
+                <source src="video/HNI_0073.mp4" type="video/mp4">
+                <source src="video/HNI_0070.mp4" type="video/mp4">
+                <source src="video/HNI_0068.mp4" type="video/mp4">
+                <source src="video/HNI_0079.mp4" type="video/mp4">
+                
+            </video>
+            
+            <!-- Overlay opzionale con testo (puoi rimuoverlo se non serve) -->
+            <div class="video-overlay">
+                <div class="video-overlay-content">
+                    <h2><span class="iniziale">T</span> raveling</h2>
+                    <p>I miei viaggi documentati attraverso una Digi-cam !</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="gallery">
-        <div class="footer-content">
-            <div class="footer-logo">DV</div>
-            <div class="footer-copyright">©Didideb2025, All rights reserved</div>
-            <div class="footer-links">
-                <a href="#privacy">Privacy</a>
-                <span>—</span>
-                <a href="#cookies">Cookies</a>
-            </div>
-        </div>
-    </footer>
+   <footer class="site-footer">
+  <div class="footer-container">
+    <!-- Logo -->
+    <div class="footer-logo">
+      <img src="img/favicon5.png" alt="Logo sito">
+    </div>
+
+    <!-- Informazioni -->
+    <div class="footer-info">
+      <ul>
+        <li>Privacy Policy</li>
+        <li>Cookie Policy</li>
+        <li>Terms & Conditions</li>
+      </ul>
+    </div>
+
+    <!-- Social -->
+    <div class="footer-social">
+      <ul>
+        <a href="https://www.instagram.com/deboraavalentini">Instagram</a><br>
+        <br>
+        <a href="https://www.pinterest.com/fleursoyeuse">Pinterest</a><br>
+        <br>
+        <a href="https://twitter.com/atzprintemps">Twitter</a>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>© 2025 Debora Valentini (DidiDeb), All Rights Reserved.</p>
+  </div>
+</footer>
 
     <script>
         const menuIcon = document.getElementById('menuIcon');
@@ -166,17 +218,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const overlay = document.getElementById('overlay');
         const body = document.body;
 
-        function toggleMenu() {
-            menuIcon.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-            
-            if (mobileMenu.classList.contains('active')) {
-                body.style.overflow = 'hidden';
-            } else {
-                body.style.overflow = '';
-            }
-        }
+       const header = document.querySelector('header');
+
+function toggleMenu() {
+    const isOpen = mobileMenu.classList.toggle('active');
+
+    menuIcon.classList.toggle('active', isOpen);
+    overlay.classList.toggle('active', isOpen);
+
+    if (isOpen) {
+        body.style.overflow = 'hidden';
+        header.classList.add('header-hidden');
+    } else {
+        body.style.overflow = '';
+        header.classList.remove('header-hidden');
+    }
+}
+
 
         menuIcon.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', toggleMenu);
@@ -302,7 +360,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 autoScrollInterval = setInterval(() => {
                     const itemWidth = galleryGrid.querySelector('.gallery-item')?.offsetWidth || window.innerWidth;
                     const nextScroll = galleryGrid.scrollLeft + itemWidth;
-                    // Loop back to start if at end
+                    // Loop back to start
                     if (nextScroll >= galleryGrid.scrollWidth) {
                         galleryGrid.scrollLeft = 0;
                     } else {
@@ -333,7 +391,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             galleryGrid.addEventListener('wheel', stopAutoScroll);
             galleryGrid.addEventListener('scroll', () => {
                 stopAutoScroll();
-                // Restart after user stops scrolling
                 setTimeout(startAutoScroll, 3000);
             });
         })();
@@ -416,5 +473,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         })();
     </script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "cards",
+            grabCursor: true,
+        });
+    </script>
 </body>
-</html>
