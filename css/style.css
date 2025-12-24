@@ -310,6 +310,16 @@ h3 {
         top: 70px;
         padding: 5px;
     }
+
+    .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ff087f, #c508ff);
+    width: 0%;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 0 10px rgba(197, 8, 255, 0.6);
+    top: 70px;
+    padding: 5px;
+}
 }
 
         /* Hero Section */
@@ -427,12 +437,12 @@ h3 {
 /* Per schermi molto piccoli (iPhone SE) */
 @media (max-width: 375px) {
     .hero-title {
-        font-size: 26px;
+        font-size: 22px;
         white-space: nowrap;
     }
 
     .hero-title span {
-        font-size: 38px;
+        font-size: 30px;
     }
 }
 
