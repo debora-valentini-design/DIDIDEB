@@ -399,11 +399,11 @@ h3 {
             }
 
             .hero-title {
-                font-size: 50px;
+                font-size: 45px;
             }
 
             .hero-title span {
-                font-size: 60px;
+                font-size: 50px;
             }
 
             .mobile-menu {
@@ -424,6 +424,41 @@ h3 {
 
 .menu-icon {
     display: flex !important;
+}
+
+/* Aggiungi questa media query al tuo CSS */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 35px;
+        white-space: nowrap; /* mantiene il testo su una riga */
+    }
+
+    .hero-title span {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 32px;
+        white-space: nowrap;
+    }
+
+    .hero-title span {
+        font-size: 42px;
+    }
+}
+
+/* Per schermi molto piccoli (iPhone SE) */
+@media (max-width: 375px) {
+    .hero-title {
+        font-size: 28px;
+        white-space: nowrap;
+    }
+
+    .hero-title span {
+        font-size: 38px;
+    }
 }
 
 /* Transizione morbida header */
