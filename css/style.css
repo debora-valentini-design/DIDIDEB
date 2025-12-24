@@ -308,6 +308,8 @@ h3 {
 @media (max-width: 768px) {
     .progress-bar-container {
         top: 70px;
+        margin-top: 8px;
+        padding: 5px;
     }
 }
 
