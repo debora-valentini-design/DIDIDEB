@@ -30,7 +30,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#career">Career</a></li>
                 <li><a href="#discover">Discover</a></li>
-                <li><a href="#Video">Video</a></li>
+                <li><a href="#video">Video</a></li>
             </ul>
         </nav>
         <div class="header-right">
@@ -65,6 +65,14 @@
             <li><a href="#video">Video</a></li>
         </ul>
     </div>
+
+
+<!-- Progress Bar -->
+<div class="progress-bar-container">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<!-- Gallery dropdown (one-page) -->
 
     
    <!-- Hero section -->
@@ -130,6 +138,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
     </script>
+
+    <script>
+    // Progress Bar Script
+    window.addEventListener('scroll', function() {
+        const progressBar = document.getElementById('progressBar');
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Calcola la percentuale di scroll
+        const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+        
+        // Aggiorna la larghezza della barra
+        progressBar.style.width = scrollPercent + '%';
+    });
+</script>
     
      <!-- Cards Section 
     <section class="cards-section" id="discover">
