@@ -187,405 +187,84 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         <div class="carousel-container">
             <div class="carousel-track">
                 <div class="carousel-item">
-                    <img src="img/DSCF2961.JPG" alt="Portfolio 1">
+                    <img src="img/DSCF2961.JPG" alt="Visiting con Reinhard Plank">
+                    <div class="caption">
+                        <h3>Visiting con Reinhard Plank</h3>
+                        <p>Durante il visiting si è sostenuto un workshop di prodotto, dove l'obiettivo era quello di creare a gruppi un copricapo originale in feltro.</p>
+                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="img/DSCF3003.JPG" alt="Portfolio 5">
+                    <div class="caption">
+                        <h3>Portfolio 5</h3>
+                        <p>Subtitle for Portfolio 5</p>
+                    </div>
                 </div>
-                 <div class="carousel-item">
-                    <img src="img/haveabiteTEXT.png" alt="Portfolio 6">
+                <div class="carousel-item">
+                    <img src="img/haveabitetext.png" alt="Portfolio 6">
+                    <div class="caption">
+                        <h3>Portfolio 6</h3>
+                        <p>Subtitle for Portfolio 6</p>
                     </div>
-                     <div class="carousel-item">
-                    <img src="img/bite-01.png" alt="Portfolio 7">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/bite01.png" alt="Portfolio 7">
+                    <div class="caption">
+                        <h3>Portfolio 7</h3>
+                        <p>Subtitle for Portfolio 7</p>
                     </div>
-                     <div class="carousel-item">
-                    <img src="img/bite-02.png" alt="Portfolio 8">
-                     </div>
-                     <div class="carousel-item">
-                    <img src="img/manifestotrasformazione2 copia.png" alt="Portfolio 9">
-                     </div>
-                     <div class="carousel-item">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/bite02.png" alt="Portfolio 8">
+                    <div class="caption">
+                        <h3>Portfolio 8</h3>
+                        <p>Subtitle for Portfolio 8</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/manifestotrasformazione2copia.png" alt="Portfolio 9">
+                    <div class="caption">
+                        <h3>Portfolio 9</h3>
+                        <p>Subtitle for Portfolio 9</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
                     <img src="img/pagina16.png" alt="Portfolio 10">
-                     </div>
-                     <div class="carousel-item">
+                    <div class="caption">
+                        <h3>Portfolio 10</h3>
+                        <p>Subtitle for Portfolio 10</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
                     <img src="img/copertina16.png" alt="Portfolio 11">
-                     </div>
-                     <div class="carousel-item">
+                    <div class="caption">
+                        <h3>Portfolio 11</h3>
+                        <p>Subtitle for Portfolio 11</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
                     <img src="img/pagina2.png" alt="Portfolio 12">
-                     </div>
-            </div>
-        </div>
-    </section>
-
-     <section class="video-section" id="video">
-        <div class="video-container">
-            <video autoplay muted loop playsinline>
-                <source src="video/HNI_0071.mp4" type="video/mp4">
-                <source src="video/HNI_0073.mp4" type="video/mp4">
-                <source src="video/HNI_0070.mp4" type="video/mp4">
-                <source src="video/HNI_0068.mp4" type="video/mp4">
-                <source src="video/HNI_0079.mp4" type="video/mp4">
-                
-            </video>
-            
-            <!-- Overlay opzionale con testo (puoi rimuoverlo se non serve) -->
-            <div class="video-overlay">
-                <div class="video-overlay-content">
-                    <h2><span class="iniziale">T</span> raveling</h2>
-                    <p>I miei viaggi documentati attraverso una Digi-cam !</p>
+                    <div class="caption">
+                        <h3>Portfolio 12</h3>
+                        <p>Subtitle for Portfolio 12</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-   <footer class="site-footer">
-  <div class="footer-container">
-    <!-- Logo -->
-    <div class="footer-logo">
-      <img src="img/favicon5.png" alt="Logo sito">
-    </div>
-
-    <!-- Informazioni -->
-    <div class="footer-info">
-      <ul>
-        <li>Privacy Policy</li>
-        <li>Cookie Policy</li>
-        <li>Terms & Conditions</li>
-      </ul>
-    </div>
-
-    <!-- Social -->
-    <div class="footer-social">
-      <ul>
-        <a href="https://www.instagram.com/deboraavalentini">Instagram</a><br>
-        <br>
-        <a href="https://www.pinterest.com/fleursoyeuse">Pinterest</a><br>
-        <br>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Copyright -->
-  <div class="footer-bottom">
-    <p>© 2025 Debora Valentini (DidiDeb), All Rights Reserved.</p>
-  </div>
-</footer>
-
-    <script>
-        const menuIcon = document.getElementById('menuIcon');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const overlay = document.getElementById('overlay');
-        const body = document.body;
-
-       const header = document.querySelector('header');
-
-function toggleMenu() {
-    const isOpen = mobileMenu.classList.toggle('active');
-
-    menuIcon.classList.toggle('active', isOpen);
-    overlay.classList.toggle('active', isOpen);
-
-    if (isOpen) {
-        body.style.overflow = 'hidden';
-        header.classList.add('header-hidden');
-    } else {
-        body.style.overflow = '';
-        header.classList.remove('header-hidden');
-    }
-}
-
-
-        menuIcon.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-
-        const mobileLinks = document.querySelectorAll('.mobile-menu a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-    </script>
-    <script>
-        // One-page gallery dropdown: populate images and open/close logic
-        (function(){
-            const galleryTrigger = document.querySelector('.open-gallery');
-            const galleryDropdown = document.getElementById('galleryDropdown');
-            const galleryClose = document.getElementById('galleryClose');
-            const galleryGrid = document.getElementById('galleryGrid');
-
-            if (!galleryTrigger || !galleryDropdown || !galleryGrid) return;
-
-            // Image list using DSCF files from the `img/` folder
-            const images = [
-                'img/DSCF2961.JPG',
-                'img/DSCF2989.JPG',
-                'img/DSCF2992.JPG',
-                'img/DSCF3001.JPG',
-                'img/DSCF3003.JPG',
-            ];
-
-            function populate() {
-                galleryGrid.innerHTML = '';
-                images.forEach(src => {
-                    const item = document.createElement('div');
-                    item.className = 'gallery-item';
-                    const img = document.createElement('img');
-                    img.src = src;
-                    img.alt = 'Gallery image';
-                    img.loading = 'lazy';
-                    img.onerror = function(){ this.src = 'https://via.placeholder.com/800x600/ff087f/ffffff?text=Debora+Valentini' };
-                    item.appendChild(img);
-                    galleryGrid.appendChild(item);
-                });
-            }
-
-            function openGallery(e){
-                e && e.preventDefault();
-                populate();
-                galleryDropdown.setAttribute('aria-hidden','false');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeGallery(){
-                galleryDropdown.setAttribute('aria-hidden','true');
-                document.body.style.overflow = '';
-            }
-
-            galleryTrigger.addEventListener('click', openGallery);
-            galleryClose.addEventListener('click', closeGallery);
-
-            // close when clicking outside inner area
-            galleryDropdown.addEventListener('click', (e) => {
-                if (e.target === galleryDropdown) closeGallery();
-            });
-
-            // close on Escape
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && galleryDropdown.getAttribute('aria-hidden') === 'false') closeGallery();
-            });
-
-                // Auto-scroll images horizontally inside the gallery box
-                let galleryScrollInterval = null;
-                function startGalleryAutoScroll() {
-                    stopGalleryAutoScroll();
-                    galleryScrollInterval = setInterval(() => {
-                        const itemWidth = galleryGrid.querySelector('.gallery-item')?.offsetWidth || 320;
-                        const nextScroll = galleryGrid.scrollLeft + itemWidth;
-                        if (nextScroll + galleryGrid.offsetWidth >= galleryGrid.scrollWidth) {
-                            galleryGrid.scrollLeft = 0;
-                        } else {
-                            galleryGrid.scrollLeft = nextScroll;
-                        }
-                    }, 3500);
-                }
-
-                function stopGalleryAutoScroll() {
-                    if (galleryScrollInterval) clearInterval(galleryScrollInterval);
-                }
-
-                // Start auto-scroll when gallery opens
-
-                // Use let to avoid redeclaration errors
-                if (!window._galleryOpenPatched) {
-                    window._galleryOpenPatched = true;
-                    const originalOpenGallery = openGallery;
-                    openGallery = function(e) {
-                        originalOpenGallery(e);
-                        setTimeout(startGalleryAutoScroll, 600); // wait for open animation
-                    };
-                    const originalCloseGallery = closeGallery;
-                    closeGallery = function() {
-                        originalCloseGallery();
-                        stopGalleryAutoScroll();
-                    };
-                }
-
-                // Pause auto-scroll on manual scroll
-                galleryGrid.addEventListener('wheel', stopGalleryAutoScroll);
-                galleryGrid.addEventListener('mousedown', stopGalleryAutoScroll);
-                galleryGrid.addEventListener('touchstart', stopGalleryAutoScroll);
-                galleryGrid.addEventListener('scroll', () => {
-                    stopGalleryAutoScroll();
-                    setTimeout(startGalleryAutoScroll, 3000);
-                });
-
-            // Auto-scroll carousel: scroll to next image every 5 seconds
-            let autoScrollInterval = null;
-            function startAutoScroll() {
-                autoScrollInterval = setInterval(() => {
-                    const itemWidth = galleryGrid.querySelector('.gallery-item')?.offsetWidth || window.innerWidth;
-                    const nextScroll = galleryGrid.scrollLeft + itemWidth;
-                    // Loop back to start
-                    if (nextScroll >= galleryGrid.scrollWidth) {
-                        galleryGrid.scrollLeft = 0;
-                    } else {
-                        galleryGrid.scrollLeft = nextScroll;
-                    }
-                }, 5000);
-            }
-
-            function stopAutoScroll() {
-                if (autoScrollInterval) clearInterval(autoScrollInterval);
-            }
-
-            // Start auto-scroll when gallery opens
-            const originalOpenGallery = openGallery;
-            openGallery = function(e) {
-                originalOpenGallery(e);
-                startAutoScroll();
-            };
-
-            // Stop auto-scroll when gallery closes
-            const originalCloseGallery = closeGallery;
-            closeGallery = function() {
-                originalCloseGallery();
-                stopAutoScroll();
-            };
-
-            // Pause auto-scroll on user manual scroll
-            galleryGrid.addEventListener('wheel', stopAutoScroll);
-            galleryGrid.addEventListener('scroll', () => {
-                stopAutoScroll();
-                setTimeout(startAutoScroll, 3000);
-            });
-        })();
-    </script>
-    <script>
-        // Create a persistent background element and keep it active;
-        // also add a class to the section so we can hide the inline image.
-        (function() {
-            const imageEl = document.querySelector('.about-image');
-            const sectionEl = document.querySelector('.about-section');
-            if (!imageEl || !sectionEl) return;
-
-            const bg = document.createElement('div');
-            bg.className = 'about-bg';
-            // use CSS background-image for smooth transitions and no scrollbar
-            bg.style.backgroundImage = 'url("img/fotopaginawebcreativa.jpg")';
-            // append the bg inside the about section so its height is limited to the section
-            sectionEl.appendChild(bg);
-
-            function activate() {
-                bg.classList.add('active');
-                sectionEl.classList.add('bg-active');
-            }
-
-            function deactivate() {
-                bg.classList.remove('active');
-                sectionEl.classList.remove('bg-active');
-            }
-
-            // Keep active while cursor is over either the image or the background
-            imageEl.addEventListener('mouseenter', activate);
-            imageEl.addEventListener('mouseleave', (e) => {
-                if (e.relatedTarget && bg.contains(e.relatedTarget)) return;
-                deactivate();
-            });
-
-            bg.addEventListener('mouseenter', activate);
-            bg.addEventListener('mouseleave', (e) => {
-                if (e.relatedTarget && imageEl.contains(e.relatedTarget)) return;
-                deactivate();
-            });
-
-            // Support click to toggle on touch devices (toggle also updates section class)
-            imageEl.addEventListener('click', (e) => {
-                if (bg.classList.contains('active')) {
-                    deactivate();
-                } else {
-                    activate();
-                }
-            });
-        })();
-    </script>
-    <script>
-        // Make non-link cards focusable and toggle a "clicked" state on click or keyboard
-        (function(){
-            const cards = document.querySelectorAll('.cards-grid .card');
-            if (!cards || cards.length === 0) return;
-
-            cards.forEach(card => {
-                // don't override behavior of cards wrapped in links (gallery cover)
-                const inLink = card.closest('a');
-                if (!inLink) {
-                    // make focusable for keyboard users
-                    card.setAttribute('tabindex', '0');
-                    // click toggles 'clicked'
-                    card.addEventListener('click', () => {
-                        card.classList.toggle('clicked');
-                    });
-                    // keyboard support: Enter or Space toggles
-                    card.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            card.classList.toggle('clicked');
-                        }
-                    });
-                } else {
-                    // for linked cards, give the inner card a pointer cursor
-                    card.style.cursor = 'pointer';
-                }
-            });
-        })();
-    </script>
-    
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            effect: "cards",
-            grabCursor: true,
-        });
-    </script>
-
-    <!-- Back-to-Top Arrow -->
-<div class="back-to-top" id="backToTop">
-    <div class="arrow">&uarr;</div>
-</div>
-
-<script>
-    // Back-to-Top Arrow Logic
-    const backToTop = document.getElementById('backToTop');
-
-    // Show the button when scrolling down
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTop.classList.add('show');
-        } else {
-            backToTop.classList.remove('show');
-        }
-    });
-
-    // Scroll to top when clicking the button
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-</script>
-<script>
-    // Search functionality
-    const searchInput = document.querySelector('.search-box input');
-
-    searchInput.addEventListener('input', function () {
-        const query = this.value.toLowerCase();
-        const elements = document.querySelectorAll('body *');
-
-        elements.forEach(el => {
-            if (el.textContent.toLowerCase().includes(query) && query !== '') {
-                el.style.backgroundColor = '#ff087f'; // Highlight matching elements
-                el.style.color = '#fff';
-            } else {
-                el.style.backgroundColor = '';
-                el.style.color = '';
-            }
-        });
-    });
-</script>
-</body>
-</html>
+    <!-- Updated Discover Section -->
+    <section class="discover-section" style="background-color: #1a1a2e; padding: 40px 20px;">
+        <div class="discover-container" style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="discover-item" style="display: flex; align-items: center; gap: 20px;">
+                <img src="img/DSCF2961.JPG" alt="Image 1" style="width: 100%; max-width: 300px;">
+                <div class="discover-text">
+                    <h3 style="color: #fff;">Discover More</h3>
+                    <p style="color: #fff;">Explore the creative journey and the artistic expressions showcased in the portfolio. Each piece tells a unique story, blending innovation and design.</p>
+                </div>
+            </div>
+            <div class="discover-item" style="display: flex; align-items: center; gap: 20px;">
+                <img src="img/DSCF3003.JPG" alt="Image 2" style="width: 100%; max-width: 300px;">
+                <div class="discover-text">
+                    <h3 style="color: #fff;">Discover More</h3>
+                    <p style="color: #fff;">Explore the creative journey and the artistic expressions showcased in the portfolio. Each piece tells a unique story, blending innovation e
