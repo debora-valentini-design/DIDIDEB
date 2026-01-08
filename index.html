@@ -568,5 +568,24 @@ function toggleMenu() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 </script>
+<script>
+    // Search functionality
+    const searchInput = document.querySelector('.search-box input');
+
+    searchInput.addEventListener('input', function () {
+        const query = this.value.toLowerCase();
+        const elements = document.querySelectorAll('body *');
+
+        elements.forEach(el => {
+            if (el.textContent.toLowerCase().includes(query) && query !== '') {
+                el.style.backgroundColor = '#ff087f'; // Highlight matching elements
+                el.style.color = '#fff';
+            } else {
+                el.style.backgroundColor = '';
+                el.style.color = '';
+            }
+        });
+    });
+</script>
 </body>
 </html>
