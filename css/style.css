@@ -1429,3 +1429,76 @@ header.header-hidden .search-box {
     font-size: 16px;
     margin: 5px 0 0;
 }
+
+/* Hover effect for discover section images */
+.discover-item img {
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.discover-item img:hover {
+    transform: scale(1.1); /* Enlarge the image */
+    filter: brightness(1.2); /* Brighten the image */
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 960px) {
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        padding: 10px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero {
+        padding: 100px 20px 40px;
+        text-align: left;
+    }
+
+    .hero-title {
+        font-size: 40px;
+        letter-spacing: -1px;
+    }
+
+    .hero-title span {
+        font-size: 60px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .discover-section {
+        padding: 20px 10px;
+    }
+
+    .discover-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .discover-item img {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .discover-text {
+        text-align: left;
+    }
+
+    .carousel-container {
+        height: auto;
+    }
+
+    .carousel-item {
+        width: 100%;
+        height: auto;
+    }
+
+    .carousel-item img {
+        object-fit: contain;
+    }
+}
