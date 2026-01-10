@@ -71,3 +71,61 @@ aboutImage.addEventListener('mouseleave', () => {
     aboutBg.classList.remove('active');
     aboutSection.classList.remove('bg-active');
 });
+
+// Pausa automatica del carousel al passaggio del mouse o touch
+const carouselTrack = document.querySelector('.carousel-track');
+
+if (carouselTrack) {
+    // Pausa al passaggio del mouse (desktop)
+    carouselTrack.addEventListener('mouseenter', () => {
+        carouselTrack.style.animationPlayState = 'paused';
+    });
+
+    carouselTrack.addEventListener('mouseleave', () => {
+        carouselTrack.style.animationPlayState = 'running';
+    });
+
+    // Pausa al touch (mobile/tablet)
+    carouselTrack.addEventListener('touchstart', () => {
+        carouselTrack.style.animationPlayState = 'paused';
+    });
+
+    carouselTrack.addEventListener('touchend', () => {
+        // Riprende l'animazione dopo 2 secondi dal rilascio del touch
+        setTimeout(() => {
+            carouselTrack.style.animationPlayState = 'running';
+        }, 2000);
+    });
+
+    // Scroll manuale con mouse drag (opzionale per desktop)
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carouselTrack.addEventListener('mousedown', (e) => {
+        isDown = true;
+        carouselTrack.style.cursor = 'grabbing';
+        startX = e.pageX - carouselTrack.offsetLeft;
+        scrollLeft = carouselTrack.scrollLeft;
+    });
+
+    carouselTrack.addEventListener('mouseleave', () => {
+        isDown = false;
+        carouselTrack.style.cursor = 'grab';
+    });
+
+    carouselTrack.addEventListener('mouseup', () => {
+        isDown = false;
+        carouselTrack.style.cursor = 'grab';
+    });
+
+    carouselTrack.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carouselTrack.offsetLeft;
+        const walk = (x - startX) * 2;
+        carouselTrack.scrollLeft = scrollLeft - walk;
+    });
+}
+
+

@@ -364,6 +364,7 @@ h3 {
     font-size: 120px; /* Leggermente più grande per dare risalto */
     color: #fff;
     padding: 10px;
+    text-shadow: #c508ff 2px 2px 7px;
 }
 
 .iniziale{
@@ -381,7 +382,6 @@ h3 {
             font-size: 14px;
             opacity: 0.8;
             margin-top: 40px;
-            text-shadow: #c508ff 0px 0px 5px;
         }
 
        /* Ancora freccia scroll */
@@ -1154,7 +1154,6 @@ header.header-hidden .search-box {
             color: #fff;
             margin-bottom: 60px;
             font-weight: 300;
-            text-shadow: #c508ff 0px 0px 7px;
         }
 
         .carousel-title .iniziale {
@@ -1212,6 +1211,8 @@ header.header-hidden .search-box {
                 transform: translateX(calc(-350px * 5 - 150px)); /* larghezza item * numero + gap totale */
             }
         }
+
+        
 
         /* Responsive */
         @media (max-width: 768px) {
