@@ -6,7 +6,7 @@ document.querySelector('.scroll-arrow').addEventListener('click', function() {
     });
 });
 
-// Scroll fluido per tutti i link interni (già presente ma migliorato)
+// Scroll fluido per tutti i link interni alla pagina
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -20,7 +20,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Progress Bar Script
+// Barra di progresso durante lo scroll
 window.addEventListener('scroll', function() {
     const progressBar = document.getElementById('progressBar');
     const windowHeight = window.innerHeight;
@@ -34,19 +34,40 @@ window.addEventListener('scroll', function() {
     progressBar.style.width = scrollPercent + '%';
 });
 
-// Dropdown Menu Functionality
+//  Menu mobile 
 const menuIcon = document.getElementById('menuIcon');
 const mobileMenu = document.getElementById('mobileMenu');
 const overlay = document.getElementById('overlay');
 
 menuIcon.addEventListener('click', () => {
-    // Toggle the active class for the menu and overlay
+    // apre/chiude il menu mobile
     mobileMenu.classList.toggle('active');
     overlay.classList.toggle('active');
 });
 
 overlay.addEventListener('click', () => {
-    // Close the menu when clicking on the overlay
+    // chiude il menu quando si clicca sull'overlay
     mobileMenu.classList.remove('active');
     overlay.classList.remove('active');
+});
+
+
+// Hover effect per l'immagine About che si espande a schermo intero
+const aboutSection = document.querySelector('.about-section');
+const aboutImage = document.querySelector('.about-image');
+const aboutBg = document.createElement('div');
+
+// Crea l'elemento background
+aboutBg.classList.add('about-bg');
+aboutSection.insertBefore(aboutBg, aboutSection.firstChild);
+
+// Aggiungi eventi hover
+aboutImage.addEventListener('mouseenter', () => {
+    aboutBg.classList.add('active');
+    aboutSection.classList.add('bg-active');
+});
+
+aboutImage.addEventListener('mouseleave', () => {
+    aboutBg.classList.remove('active');
+    aboutSection.classList.remove('bg-active');
 });
