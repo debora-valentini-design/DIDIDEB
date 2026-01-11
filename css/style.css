@@ -1419,12 +1419,12 @@ header.header-hidden .search-box {
     }
 
     .hero-title {
-        font-size: 40px;
+        font-size: 30px;
         letter-spacing: -1px;
     }
 
     .hero-title span {
-        font-size: 60px;
+        font-size: 40px;
     }
 
     .hero-subtitle {
@@ -1455,7 +1455,7 @@ header.header-hidden .search-box {
     }
 
     .carousel-item {
-        width: 100%;
+        width: 280px;
         height: auto;
     }
 
