@@ -1212,6 +1212,7 @@ header.header-hidden .search-box {
             }
         }
 
+
         
 
         /* Responsive */
@@ -1418,6 +1419,14 @@ header.header-hidden .search-box {
             font-size: 48px;
             margin-bottom: 10px;
             font-weight: 300;
+        }
+
+        .video-overlay-content h2 span {
+            font-family: 'Ballet', cursive;
+            font-size: 60px;
+            color: #fff;
+            padding: 10px;
+            text-shadow: #c508ff 2px 2px 7px;
         }
 
         .video-overlay-content p {
