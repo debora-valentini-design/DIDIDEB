@@ -72,60 +72,154 @@ aboutImage.addEventListener('mouseleave', () => {
     aboutSection.classList.remove('bg-active');
 });
 
-// Pausa automatica del carousel al passaggio del mouse o touch
+
+// CAROUSEL CON FRECCE E CONTROLLO MANUALE
+const carouselContainer = document.querySelector('.carousel-container');
 const carouselTrack = document.querySelector('.carousel-track');
 
-if (carouselTrack) {
-    // Pausa al passaggio del mouse (desktop)
-    carouselTrack.addEventListener('mouseenter', () => {
+if (carouselTrack && carouselContainer) {
+    let isManualControl = false;
+    let currentTranslateX = 0;
+    const itemWidth = 350; // larghezza item
+    const gap = 30; // gap tra item
+    const step = itemWidth + gap;
+
+    // Funzione per aggiornare la posizione del carousel
+    function updateCarouselPosition(instant = false) {
+        if (instant) {
+            carouselTrack.style.transition = 'none';
+        } else {
+            carouselTrack.style.transition = 'transform 0.5s ease';
+        }
+        carouselTrack.style.transform = `translateX(${currentTranslateX}px)`;
+        
+        if (instant) {
+            setTimeout(() => {
+                carouselTrack.style.transition = '';
+            }, 50);
+        }
+    }
+
+    // Funzione per scorrere a sinistra
+    function scrollLeft() {
+        currentTranslateX += step;
+        if (currentTranslateX > 0) {
+            currentTranslateX = 0;
+        }
+        updateCarouselPosition();
+    }
+
+    // Funzione per scorrere a destra
+    function scrollRight() {
+        const maxScroll = -(step * 7); // 7 items totali
+        currentTranslateX -= step;
+        if (currentTranslateX < maxScroll) {
+            currentTranslateX = maxScroll;
+        }
+        updateCarouselPosition();
+    }
+
+    // Pausa animazione e attiva controllo manuale su hover
+    carouselContainer.addEventListener('mouseenter', () => {
+        isManualControl = true;
         carouselTrack.style.animationPlayState = 'paused';
+        
+        // Ottieni la posizione corrente dall'animazione
+        const computedStyle = window.getComputedStyle(carouselTrack);
+        const matrix = new WebKitCSSMatrix(computedStyle.transform);
+        currentTranslateX = matrix.m41;
+        
+        // Disabilita l'animazione e imposta la transform manualmente
+        carouselTrack.style.animation = 'none';
+        carouselTrack.style.transform = `translateX(${currentTranslateX}px)`;
     });
 
-    carouselTrack.addEventListener('mouseleave', () => {
+    // Riprendi animazione su mouse leave
+    carouselContainer.addEventListener('mouseleave', () => {
+        isManualControl = false;
+        carouselTrack.style.animation = '';
+        carouselTrack.style.transform = '';
         carouselTrack.style.animationPlayState = 'running';
     });
 
-    // Pausa al touch (mobile/tablet)
-    carouselTrack.addEventListener('touchstart', () => {
+    // Event listeners per le frecce (che creeremo nell'HTML)
+    const leftArrow = carouselContainer.querySelector('.carousel-arrow.left');
+    const rightArrow = carouselContainer.querySelector('.carousel-arrow.right');
+
+    if (leftArrow && rightArrow) {
+        leftArrow.addEventListener('click', scrollLeft);
+        rightArrow.addEventListener('click', scrollRight);
+    }
+
+    // Touch support per mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carouselTrack.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
         carouselTrack.style.animationPlayState = 'paused';
+        
+        const computedStyle = window.getComputedStyle(carouselTrack);
+        const matrix = new WebKitCSSMatrix(computedStyle.transform);
+        currentTranslateX = matrix.m41;
+        carouselTrack.style.animation = 'none';
+        carouselTrack.style.transform = `translateX(${currentTranslateX}px)`;
     });
 
-    carouselTrack.addEventListener('touchend', () => {
-        // Riprende l'animazione dopo 2 secondi dal rilascio del touch
+    carouselTrack.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        
         setTimeout(() => {
+            carouselTrack.style.animation = '';
+            carouselTrack.style.transform = '';
             carouselTrack.style.animationPlayState = 'running';
         }, 2000);
     });
 
-    // Scroll manuale con mouse drag (opzionale per desktop)
+    function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+            // Swipe left
+            scrollRight();
+        }
+        if (touchEndX > touchStartX + 50) {
+            // Swipe right
+            scrollLeft();
+        }
+    }
+
+    // Drag con mouse (desktop)
     let isDown = false;
     let startX;
-    let scrollLeft;
+    let scrollLeftPos;
 
     carouselTrack.addEventListener('mousedown', (e) => {
+        if (!isManualControl) return;
         isDown = true;
-        carouselTrack.style.cursor = 'grabbing';
-        startX = e.pageX - carouselTrack.offsetLeft;
-        scrollLeft = carouselTrack.scrollLeft;
+        startX = e.pageX;
+        scrollLeftPos = currentTranslateX;
     });
 
-    carouselTrack.addEventListener('mouseleave', () => {
+    carouselContainer.addEventListener('mouseleave', () => {
         isDown = false;
-        carouselTrack.style.cursor = 'grab';
     });
 
     carouselTrack.addEventListener('mouseup', () => {
         isDown = false;
-        carouselTrack.style.cursor = 'grab';
     });
 
     carouselTrack.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
+        if (!isDown || !isManualControl) return;
         e.preventDefault();
-        const x = e.pageX - carouselTrack.offsetLeft;
-        const walk = (x - startX) * 2;
-        carouselTrack.scrollLeft = scrollLeft - walk;
+        const x = e.pageX;
+        const walk = (x - startX) * 1.5;
+        currentTranslateX = scrollLeftPos + walk;
+        
+        // Limiti di scroll
+        const maxScroll = -(step * 7);
+        if (currentTranslateX > 0) currentTranslateX = 0;
+        if (currentTranslateX < maxScroll) currentTranslateX = maxScroll;
+        
+        updateCarouselPosition(true);
     });
 }
-
-
